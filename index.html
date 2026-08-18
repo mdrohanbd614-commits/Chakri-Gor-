@@ -3,14 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>ChakriGhor - চাকরি খুঁজুন</title>
+  <title>ChakriGhor</title>
 
   <style>
     * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
     }
 
     body {
@@ -19,13 +18,13 @@
       color: #222;
     }
 
-    .navbar {
+    .header {
       background: #0757c8;
       color: white;
       padding: 16px 20px;
     }
 
-    .nav-content {
+    .nav {
       max-width: 1100px;
       margin: auto;
       display: flex;
@@ -38,12 +37,12 @@
       font-weight: bold;
     }
 
-    .login-btn {
-      color: #0757c8;
+    .login {
       background: white;
-      text-decoration: none;
-      padding: 9px 16px;
+      color: #0757c8;
+      padding: 10px 17px;
       border-radius: 7px;
+      text-decoration: none;
       font-weight: bold;
     }
 
@@ -64,28 +63,28 @@
       margin-bottom: 25px;
     }
 
-    .search-box {
+    .search {
       max-width: 650px;
       margin: auto;
       display: flex;
       gap: 8px;
     }
 
-    .search-box input {
+    .search input {
       flex: 1;
-      padding: 14px;
+      padding: 15px;
       border: none;
       border-radius: 7px;
       font-size: 16px;
     }
 
-    .search-box button {
-      padding: 14px 20px;
+    .search button {
+      padding: 15px 22px;
       border: none;
       border-radius: 7px;
       background: #ffb400;
       font-weight: bold;
-      font-size: 15px;
+      cursor: pointer;
     }
 
     .container {
@@ -105,24 +104,24 @@
       gap: 18px;
     }
 
-    .job-card {
+    .job {
       background: white;
       padding: 20px;
       border-radius: 10px;
       box-shadow: 0 3px 12px rgba(0,0,0,0.08);
     }
 
-    .job-card h3 {
+    .job h3 {
       color: #0757c8;
       margin-bottom: 12px;
     }
 
-    .job-card p {
+    .job p {
       margin: 8px 0;
       color: #555;
     }
 
-    .apply-btn {
+    .apply {
       display: inline-block;
       margin-top: 12px;
       padding: 10px 17px;
@@ -145,7 +144,7 @@
         font-size: 27px;
       }
 
-      .search-box {
+      .search {
         flex-direction: column;
       }
     }
@@ -154,15 +153,15 @@
 
 <body>
 
-  <div class="navbar">
-    <div class="nav-content">
+  <header class="header">
+    <div class="nav">
       <div class="logo">ChakriGhor</div>
 
-      <a class="login-btn" href="login.html">
+      <a class="login" href="login.html">
         Login
       </a>
     </div>
-  </div>
+  </header>
 
   <section class="hero">
 
@@ -172,15 +171,15 @@
       বাংলাদেশের বিভিন্ন চাকরির সুযোগ এক জায়গায়
     </p>
 
-    <div class="search-box">
+    <div class="search">
 
       <input
         type="text"
-        id="searchInput"
+        id="search"
         placeholder="চাকরির নাম লিখুন..."
       >
 
-      <button onclick="searchJobs()">
+      <button onclick="searchJob()">
         Search
       </button>
 
@@ -188,7 +187,7 @@
 
   </section>
 
-  <div class="container">
+  <main class="container">
 
     <div class="title">
       <h2>সাম্প্রতিক চাকরি</h2>
@@ -196,49 +195,43 @@
 
     <div class="jobs">
 
-      <div class="job-card">
+      <div class="job">
 
         <h3>Sales Executive</h3>
 
         <p>🏢 কোম্পানি: Demo Company</p>
-
         <p>📍 ঢাকা</p>
-
         <p>💰 বেতন: ১৫,০০০ - ২৫,০০০ টাকা</p>
 
-        <a class="apply-btn" href="login.html">
+        <a class="apply" href="login.html">
           Apply Now
         </a>
 
       </div>
 
-      <div class="job-card">
+      <div class="job">
 
         <h3>Office Assistant</h3>
 
         <p>🏢 কোম্পানি: Demo Limited</p>
-
         <p>📍 মিরপুর, ঢাকা</p>
-
         <p>💰 বেতন: ১২,০০০ - ১৮,০০০ টাকা</p>
 
-        <a class="apply-btn" href="login.html">
+        <a class="apply" href="login.html">
           Apply Now
         </a>
 
       </div>
 
-      <div class="job-card">
+      <div class="job">
 
         <h3>Computer Operator</h3>
 
         <p>🏢 কোম্পানি: Demo BD</p>
-
         <p>📍 উত্তরা, ঢাকা</p>
-
         <p>💰 বেতন: ১৪,০০০ - ২২,০০০ টাকা</p>
 
-        <a class="apply-btn" href="login.html">
+        <a class="apply" href="login.html">
           Apply Now
         </a>
 
@@ -246,7 +239,7 @@
 
     </div>
 
-  </div>
+  </main>
 
   <footer>
 
@@ -258,20 +251,20 @@
 
   <script>
 
-    function searchJobs() {
+    function searchJob() {
 
-      let search =
-        document.getElementById("searchInput").value.toLowerCase();
+      var keyword =
+        document.getElementById("search").value.toLowerCase();
 
-      let jobs =
-        document.querySelectorAll(".job-card");
+      var jobs =
+        document.querySelectorAll(".job");
 
       jobs.forEach(function(job) {
 
-        let text =
+        var text =
           job.innerText.toLowerCase();
 
-        if (text.includes(search)) {
+        if (text.includes(keyword)) {
           job.style.display = "block";
         } else {
           job.style.display = "none";
