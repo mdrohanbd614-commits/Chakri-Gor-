@@ -1,1 +1,287 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <title>ChakriGhor - চাকরি খুঁজুন</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f7fb;
+      color: #222;
+    }
+
+    .navbar {
+      background: #0757c8;
+      color: white;
+      padding: 16px 20px;
+    }
+
+    .nav-content {
+      max-width: 1100px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 25px;
+      font-weight: bold;
+    }
+
+    .login-btn {
+      color: #0757c8;
+      background: white;
+      text-decoration: none;
+      padding: 9px 16px;
+      border-radius: 7px;
+      font-weight: bold;
+    }
+
+    .hero {
+      background: #0757c8;
+      color: white;
+      text-align: center;
+      padding: 55px 20px;
+    }
+
+    .hero h1 {
+      font-size: 34px;
+      margin-bottom: 12px;
+    }
+
+    .hero p {
+      font-size: 17px;
+      margin-bottom: 25px;
+    }
+
+    .search-box {
+      max-width: 650px;
+      margin: auto;
+      display: flex;
+      gap: 8px;
+    }
+
+    .search-box input {
+      flex: 1;
+      padding: 14px;
+      border: none;
+      border-radius: 7px;
+      font-size: 16px;
+    }
+
+    .search-box button {
+      padding: 14px 20px;
+      border: none;
+      border-radius: 7px;
+      background: #ffb400;
+      font-weight: bold;
+      font-size: 15px;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 35px auto;
+      padding: 0 20px;
+    }
+
+    .title {
+      text-align: center;
+      margin-bottom: 25px;
+    }
+
+    .jobs {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 18px;
+    }
+
+    .job-card {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+    }
+
+    .job-card h3 {
+      color: #0757c8;
+      margin-bottom: 12px;
+    }
+
+    .job-card p {
+      margin: 8px 0;
+      color: #555;
+    }
+
+    .apply-btn {
+      display: inline-block;
+      margin-top: 12px;
+      padding: 10px 17px;
+      background: #0757c8;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+    }
+
+    footer {
+      margin-top: 50px;
+      background: #102033;
+      color: white;
+      text-align: center;
+      padding: 25px;
+    }
+
+    @media (max-width: 600px) {
+      .hero h1 {
+        font-size: 27px;
+      }
+
+      .search-box {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="navbar">
+    <div class="nav-content">
+      <div class="logo">ChakriGhor</div>
+
+      <a class="login-btn" href="login.html">
+        Login
+      </a>
+    </div>
+  </div>
+
+  <section class="hero">
+
+    <h1>আপনার পছন্দের চাকরি খুঁজুন</h1>
+
+    <p>
+      বাংলাদেশের বিভিন্ন চাকরির সুযোগ এক জায়গায়
+    </p>
+
+    <div class="search-box">
+
+      <input
+        type="text"
+        id="searchInput"
+        placeholder="চাকরির নাম লিখুন..."
+      >
+
+      <button onclick="searchJobs()">
+        Search
+      </button>
+
+    </div>
+
+  </section>
+
+  <div class="container">
+
+    <div class="title">
+      <h2>সাম্প্রতিক চাকরি</h2>
+    </div>
+
+    <div class="jobs">
+
+      <div class="job-card">
+
+        <h3>Sales Executive</h3>
+
+        <p>🏢 কোম্পানি: Demo Company</p>
+
+        <p>📍 ঢাকা</p>
+
+        <p>💰 বেতন: ১৫,০০০ - ২৫,০০০ টাকা</p>
+
+        <a class="apply-btn" href="login.html">
+          Apply Now
+        </a>
+
+      </div>
+
+      <div class="job-card">
+
+        <h3>Office Assistant</h3>
+
+        <p>🏢 কোম্পানি: Demo Limited</p>
+
+        <p>📍 মিরপুর, ঢাকা</p>
+
+        <p>💰 বেতন: ১২,০০০ - ১৮,০০০ টাকা</p>
+
+        <a class="apply-btn" href="login.html">
+          Apply Now
+        </a>
+
+      </div>
+
+      <div class="job-card">
+
+        <h3>Computer Operator</h3>
+
+        <p>🏢 কোম্পানি: Demo BD</p>
+
+        <p>📍 উত্তরা, ঢাকা</p>
+
+        <p>💰 বেতন: ১৪,০০০ - ২২,০০০ টাকা</p>
+
+        <a class="apply-btn" href="login.html">
+          Apply Now
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <footer>
+
+    <p>© 2026 ChakriGhor</p>
+
+    <p>চাকরি খুঁজুন • ক্যারিয়ার গড়ুন</p>
+
+  </footer>
+
+  <script>
+
+    function searchJobs() {
+
+      let search =
+        document.getElementById("searchInput").value.toLowerCase();
+
+      let jobs =
+        document.querySelectorAll(".job-card");
+
+      jobs.forEach(function(job) {
+
+        let text =
+          job.innerText.toLowerCase();
+
+        if (text.includes(search)) {
+          job.style.display = "block";
+        } else {
+          job.style.display = "none";
+        }
+
+      });
+
+    }
+
+  </script>
+
+</body>
+</html>
