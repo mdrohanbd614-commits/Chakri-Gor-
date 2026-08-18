@@ -1,1 +1,183 @@
 
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ChakriGhor - Login</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f3f6fa;
+    }
+
+    .header {
+      background: #0757c8;
+      color: white;
+      padding: 16px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .home {
+      color: #0757c8;
+      background: white;
+      text-decoration: none;
+      padding: 9px 15px;
+      border-radius: 6px;
+      font-weight: bold;
+    }
+
+    .box {
+      width: 90%;
+      max-width: 400px;
+      background: white;
+      margin: 60px auto;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.10);
+    }
+
+    h2 {
+      text-align: center;
+      color: #0757c8;
+      margin-bottom: 25px;
+    }
+
+    label {
+      display: block;
+      margin: 15px 0 7px;
+      font-weight: bold;
+    }
+
+    input {
+      width: 100%;
+      padding: 13px;
+      border: 1px solid #ccc;
+      border-radius: 7px;
+      font-size: 15px;
+    }
+
+    button {
+      width: 100%;
+      padding: 13px;
+      margin-top: 22px;
+      border: none;
+      border-radius: 7px;
+      background: #0757c8;
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    .signup {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .signup a {
+      color: #0757c8;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    #message {
+      text-align: center;
+      margin-top: 15px;
+      color: green;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="header">
+
+    <div class="logo">
+      ChakriGhor
+    </div>
+
+    <a class="home" href="index.html">
+      🏠 Home
+    </a>
+
+  </div>
+
+  <div class="box">
+
+    <h2>Login করুন</h2>
+
+    <form id="loginForm">
+
+      <label>মোবাইল / Email</label>
+
+      <input
+        type="text"
+        id="username"
+        placeholder="মোবাইল বা Email লিখুন"
+        required
+      >
+
+      <label>Password</label>
+
+      <input
+        type="password"
+        id="password"
+        placeholder="Password লিখুন"
+        required
+      >
+
+      <button type="submit">
+        Login
+      </button>
+
+    </form>
+
+    <div id="message"></div>
+
+    <div class="signup">
+      নতুন User?
+      <a href="signup.html">Sign Up করুন</a>
+    </div>
+
+  </div>
+
+  <script>
+    document.getElementById("loginForm").addEventListener("submit", function(event) {
+
+      event.preventDefault();
+
+      var username = document.getElementById("username").value;
+      var password = document.getElementById("password").value;
+
+      if (username && password) {
+
+        localStorage.setItem("chakrighor_user", username);
+
+        document.getElementById("message").innerHTML =
+          "✅ Login সফল হয়েছে!";
+
+        setTimeout(function() {
+          window.location.href = "index.html";
+        }, 1000);
+
+      }
+
+    });
+  </script>
+
+</body>
+</html>
